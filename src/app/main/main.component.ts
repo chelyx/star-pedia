@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SwapiService } from '../services/swapi.service';
 
 @Component({
@@ -9,12 +10,16 @@ import { SwapiService } from '../services/swapi.service';
 export class MainComponent implements OnInit {
   planetUrl = '../../assets/planet.png'
 
-  constructor(private readonly swapiService: SwapiService) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     // this.swapiService.getPeopleByName('Luke').subscribe(res => {
     //   console.log(res);
     // })
+  }
+
+  openCard(selected: string) {
+    this.router.navigateByUrl(selected);
   }
 
 }

@@ -15,4 +15,22 @@ export class Planet {
   edited: string; //
 
   constructor() {}
+
+  setFromJson(obj:any){
+    this.name = obj.name;
+    this.diameter = obj.diameter;
+    this.rotation_period = obj.rotation_period;
+    this.orbital_period = obj.orbital_period;
+    this.gravity = obj.gravity;
+    this.population = obj.population;
+    this.climate = obj.climate;
+    this.terrain = obj.terrain;
+    this.surface_water = obj.surface_water;
+    this.residents = obj.residents;
+    this.films = obj.films;
+    this.url = obj.url;
+    this.created = obj.created;
+    this.edited = obj.edited;
+    return this;
+  }
 }

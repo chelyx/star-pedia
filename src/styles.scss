@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'anakinmono';
+  src: url(assets/anakinmono.ttf) format("opentype");
+  font-display: swap;
+ }
+
+
+html, body { height: 100%; }
+body, p, h1,h2,h3, label {
+  margin: 0;
+  font-family: anakinmono, "Helvetica Neue", sans-serif;
+}
+
+.title {
+  margin: 15px;
+  font-size: 50px;
+  color: rgb(255,213,79);
+}

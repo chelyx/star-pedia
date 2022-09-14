@@ -1,0 +1,25 @@
+<div class="container">
+  <span class="title">Planets</span>
+  <div *ngIf="!showDetails" class="planet-c">
+    <div *ngFor="let planet of planets" class="planet" (click)="selectPlanet(planet)">
+      <span>{{planet.name}}</span>
+    </div>
+  </div>
+
+  <div *ngIf="showDetails" class="details">
+    <span>{{planetSelected.name}}</span>
+    <span>Diameter: {{planetSelected.diameter}}</span>
+    <span>Rotation period: {{planetSelected.rotation_period}}</span>
+    <span>Gravity: {{planetSelected.gravity}}</span>
+    <span>Population: {{planetSelected.population}}</span>
+    <span>Climate: {{planetSelected.climate}}</span>
+    <span>Terrain: {{planetSelected.terrain}}</span>
+    <span>Surface Water: {{planetSelected.surface_water}}</span>
+    <div class="links">
+      <span>Residents</span>
+      <span>Films</span>
+    </div>
+  </div>
+</div>
+
+

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Planet } from '../models/planet.model';
 
 @Injectable({
   providedIn: 'root'

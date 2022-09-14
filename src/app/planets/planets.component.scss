@@ -1,0 +1,48 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #191832;
+  height: 100%;
+  width: 100%;
+}
+
+.planet-c {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.planet {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 16%;
+  height: 42%;
+  border: 1px solid;
+  margin: 15px;
+  border-radius: 19px;
+  background-color: white;
+  justify-content: center;
+}
+
+.links{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.details {
+  width: 60%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+}
