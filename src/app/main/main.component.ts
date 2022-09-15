@@ -8,10 +8,10 @@ import { SwapiService } from '../services/swapi.service';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  planetUrl = '../../assets/planet.png'
-  filmUrl = '../../assets/film.png'
-  characterUrl = '../../assets/character.png'
-  vehiclesUrl = '../../assets/vehicle.png'
+  planetUrl = 'docs/assets/planet.png'
+  filmUrl = 'docs/assets/film.png'
+  characterUrl = 'docs/assets/character.png'
+  vehiclesUrl = 'docs/assets/vehicle.png'
 
   constructor(private router: Router) { }
 
