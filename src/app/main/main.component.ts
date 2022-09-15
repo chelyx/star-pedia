@@ -9,6 +9,9 @@ import { SwapiService } from '../services/swapi.service';
 })
 export class MainComponent implements OnInit {
   planetUrl = '../../assets/planet.png'
+  filmUrl = '../../assets/film.png'
+  characterUrl = '../../assets/character.png'
+  vehiclesUrl = '../../assets/vehicle.png'
 
   constructor(private router: Router) { }
 

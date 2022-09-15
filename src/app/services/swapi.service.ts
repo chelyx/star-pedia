@@ -58,5 +58,8 @@ export class SwapiService {
     return this.httpClient.get(this.url + '/planets/?search='+ name);
   }
 
+  getByUrl(url:string) {
+    return this.httpClient.get(url);
+  }
 
 }

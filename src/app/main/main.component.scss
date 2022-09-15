@@ -13,6 +13,16 @@
   flex-direction: row;
 }
 
+@media screen and (max-width: 600px) {
+  .container {
+    width: auto;
+    height: auto;
+  }
+  .all-cards {
+    flex-direction: column;
+  }
+}
+
 .card {
   cursor: pointer;
   border: solid 1px white;
@@ -24,5 +34,6 @@
   border-radius: 30px;
   img {
     width: 200px;
+    height: 200px;
   }
 }

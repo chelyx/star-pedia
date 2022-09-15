@@ -5,13 +5,17 @@
       <img alt="item" [src]="planetUrl">
       <span>Planets</span>
     </div>
-    <div class="card">
-      <img alt="item" [src]="planetUrl">
-      <span>Planetas</span>
+    <div class="card" (click)="openCard('film')">
+      <img alt="item" [src]="filmUrl">
+      <span>Films</span>
     </div>
     <div class="card">
-      <img alt="item" [src]="planetUrl">
-      <span>Planetas</span>
+      <img alt="item" [src]="characterUrl">
+      <span>Characters</span>
+    </div>
+    <div class="card">
+      <img alt="item" [src]="vehiclesUrl">
+      <span>Vehicles</span>
     </div>
   </div>
 </div>

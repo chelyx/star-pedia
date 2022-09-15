@@ -17,12 +17,20 @@
   width: 100%;
 }
 
+@media screen and (max-width: 600px) {
+  .container, .planet-c, .details {
+    width: auto;
+    height: auto;
+  }
+}
+
 .planet {
   cursor: pointer;
   display: flex;
   align-items: center;
-  width: 16%;
-  height: 42%;
+  // width: 16%;
+  // height: 42%;
+  padding: 60px;
   border: 1px solid;
   margin: 15px;
   border-radius: 19px;
@@ -42,7 +50,13 @@
   height: 80%;
   display: flex;
   flex-direction: column;
-  background-color: white;
-  justify-content: center;
-  align-items: center;
+  color: white;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: 15px;
+  padding-left: 15px;
+  #name {
+    font-size: 25px;
+    color: rgb(255, 213, 79);
+  }
 }
