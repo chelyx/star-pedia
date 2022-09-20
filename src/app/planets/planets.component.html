@@ -1,5 +1,6 @@
-<div *ngIf="!loading"  class="container">
-  <span class="title">Planets</span>
+<div *ngIf="!loading" class="inner-container">
+  <span class="sub-title">Planets</span>
+
   <div *ngIf="!showDetails" class="planet-c">
     <div *ngFor="let planet of planets" class="planet" (click)="selectPlanet(planet)">
       <span>{{planet.name}}</span>
@@ -21,7 +22,7 @@
     </div>
   </div>
 </div>
-<div *ngIf="loading" class="container">
+<div *ngIf="loading">
   <mat-spinner [diameter]="200"></mat-spinner>
 </div>
 

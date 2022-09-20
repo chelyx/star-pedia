@@ -1,21 +1,20 @@
 <div class="container">
   <span class="title">Starpedia</span>
-  <div class="all-cards">
-    <div class="card" (click)="openCard('planet')">
-      <img alt="item" [src]="planetUrl">
+  <div class="all-cards" *ngIf="cardSelected === 'NONE'">
+    <div class="card" (click)="openCard('PL')">
       <span>Planets</span>
     </div>
-    <div class="card" (click)="openCard('film')">
-      <img alt="item" [src]="filmUrl">
+    <div class="card" (click)="openCard('FI')">
       <span>Films</span>
     </div>
-    <div class="card">
-      <img alt="item" [src]="characterUrl">
+    <div class="card" (click)="openCard('CH')">
       <span>Characters</span>
     </div>
-    <div class="card">
-      <img alt="item" [src]="vehiclesUrl">
+    <div class="card" (click)="openCard('VE')">
       <span>Vehicles</span>
     </div>
   </div>
+
+  <app-planets *ngIf="cardSelected === 'PL'"></app-planets>
+
 </div>

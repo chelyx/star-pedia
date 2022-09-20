@@ -8,12 +8,18 @@ import { MainComponent } from './main/main.component';
 import { PlanetsComponent } from './planets/planets.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { VehiclesComponent } from './vehicles/vehicles.component';
+import { FilmsComponent } from './films/films.component';
+import { CharactersComponent } from './characters/characters.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    PlanetsComponent
+    PlanetsComponent,
+    VehiclesComponent,
+    FilmsComponent,
+    CharactersComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Planet } from '../models/planet.model';
 import { SwapiService } from '../services/swapi.service';
 
 @Component({
@@ -8,21 +9,14 @@ import { SwapiService } from '../services/swapi.service';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  planetUrl = 'assets/planet.png'
-  filmUrl = 'assets/film.png'
-  characterUrl = 'assets/character.png'
-  vehiclesUrl = 'assets/vehicle.png'
-
-  constructor(private router: Router) { }
+  cardSelected: 'CH' | 'FI' | 'PL' | 'VE' | 'NONE' = 'NONE';
+  constructor(private readonly swapiService: SwapiService) { }
 
   ngOnInit(): void {
-    // this.swapiService.getPeopleByName('Luke').subscribe(res => {
-    //   console.log(res);
-    // })
   }
 
-  openCard(selected: string) {
-    this.router.navigateByUrl(selected);
+  openCard(selected: 'CH' | 'FI' | 'PL' | 'VE') {
+    this.cardSelected = selected;
   }
 
 }
