@@ -1,13 +1,3 @@
-.planet-c {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-}
-
 @media screen and (max-width: 600px) {
   .container, .planet-c, .details {
     width: auto;
@@ -27,27 +17,13 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-.links{
+.planet-c {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   width: 100%;
 }
 
-.details {
-  height: 400px;
-  width: 600px;
-  display: flex;
-  flex-direction: column;
-  color: white;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding-top: 15px;
-  padding-left: 15px;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 19px;
-  #name {
-    font-size: 25px;
-    color: rgb(255, 213, 79);
-  }
-}

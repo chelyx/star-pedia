@@ -1,0 +1,21 @@
+.film {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 60px;
+  border: 1px solid;
+  margin: 15px;
+  border-radius: 19px;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.film-c {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}

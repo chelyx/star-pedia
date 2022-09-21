@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Planet } from '../models/planet.model';
 import { SwapiService } from '../services/swapi.service';
+import { UiService } from '../services/ui.service';
 
 @Component({
   selector: 'app-main',
@@ -9,14 +10,21 @@ import { SwapiService } from '../services/swapi.service';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  cardSelected: 'CH' | 'FI' | 'PL' | 'VE' | 'NONE' = 'NONE';
-  constructor(private readonly swapiService: SwapiService) { }
+  cardSelected: 'Characters' | 'Films' | 'Planets' | 'Vehicles' | 'NONE' = 'NONE';
+  constructor(private readonly uiService: UiService) { }
 
   ngOnInit(): void {
   }
 
-  openCard(selected: 'CH' | 'FI' | 'PL' | 'VE') {
+  openCard(selected: 'Characters' | 'Films' | 'Planets' | 'Vehicles' | 'NONE') {
     this.cardSelected = selected;
+    if(selected === 'NONE') {
+      this.uiService.setShowingDetails(false);
+    }
+  }
+
+  onShowDetails(value: boolean) {
+    this.uiService.setShowingDetails(value);
   }
 
 }

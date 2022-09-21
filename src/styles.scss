@@ -28,19 +28,45 @@ body, p, h1,h2,h3, label {
   font-size: 50px;
   color: rgb(255,213,79);
   text-shadow: 4px 4px black;
+  cursor: pointer;
 }
 
 .sub-title {
   margin: 15px;
   font-size: 25px;
-  color: black;
-  text-shadow: 4px 4px #ffd54f;
+  color: rgb(255,213,79);
+  text-shadow: 4px 4px black;
+  cursor: pointer;
 }
 
 .inner-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.details {
+  height: 400px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: 15px;
+  padding-left: 15px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 19px;
+  #name {
+    font-size: 25px;
+    color: rgb(255, 213, 79);
+  }
+  .links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+  }
 }
 
 .mat-progress-spinner circle, .mat-spinner circle {

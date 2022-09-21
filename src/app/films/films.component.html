@@ -1,1 +1,24 @@
-<p>films works!</p>
+<div *ngIf="!loading" class="inner-container">
+  <div *ngIf="!showDetails" class="film-c">
+    <div *ngFor="let film of films" class="film" (click)="selectFilm(film)">
+      <span>{{film.title}}</span>
+    </div>
+  </div>
+
+  <div *ngIf="showDetails" class="details">
+    <span id="name">{{filmSelected.title}}</span>
+    <span>Episodio: {{filmSelected.episode_id}}</span>
+    <span>Opening Crawl: {{filmSelected.opening_crawl}}</span>
+    <span>Director: {{filmSelected.director}}</span>
+    <span>Producer: {{filmSelected.producer}}</span>
+    <span>Release date: {{filmSelected.release_date}}</span>
+    <div class="links">
+      <span>Vehicles</span>
+      <span>Planets</span>
+      <span>Characters</span>
+    </div>
+  </div>
+</div>
+<div *ngIf="loading">
+  <mat-spinner [diameter]="200"></mat-spinner>
+</div>

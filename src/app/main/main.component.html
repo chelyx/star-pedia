@@ -1,20 +1,26 @@
 <div class="container">
-  <span class="title">Starpedia</span>
+  <div class="nav-bar">
+    <span class="title" (click)="openCard('NONE')">Starpedia</span>
+    <span class="sub-title" *ngIf="cardSelected !== 'NONE'" (click)="onShowDetails(false)">{{cardSelected}}</span>
+  </div>
+
   <div class="all-cards" *ngIf="cardSelected === 'NONE'">
-    <div class="card" (click)="openCard('PL')">
+    <div class="card" (click)="openCard('Planets')">
       <span>Planets</span>
     </div>
-    <div class="card" (click)="openCard('FI')">
+    <div class="card" (click)="openCard('Films')">
       <span>Films</span>
     </div>
-    <div class="card" (click)="openCard('CH')">
+    <div class="card" (click)="openCard('Characters')">
       <span>Characters</span>
     </div>
-    <div class="card" (click)="openCard('VE')">
+    <div class="card" (click)="openCard('Vehicles')">
       <span>Vehicles</span>
     </div>
   </div>
 
-  <app-planets *ngIf="cardSelected === 'PL'"></app-planets>
-
+  <app-planets *ngIf="cardSelected === 'Planets'"></app-planets>
+  <app-films *ngIf="cardSelected === 'Films'"></app-films>
+  <app-characters *ngIf="cardSelected === 'Characters'"></app-characters>
+  <app-vehicles *ngIf="cardSelected === 'Vehicles'"></app-vehicles>
 </div>
