@@ -14,8 +14,9 @@ export class PlanetsComponent implements OnInit {
   loading = true;
   planets: Planet[] = [];
   planetSelected: Planet;
-
-  constructor(private readonly swapiService: SwapiService,private readonly uiService: UiService) { }
+  films: Film[] = [];
+  constructor(private readonly swapiService: SwapiService,
+      private readonly uiService: UiService) { }
 
   ngOnInit(): void {
     this.swapiService.getAllPlanets().subscribe((res: any) =>{
@@ -27,17 +28,22 @@ export class PlanetsComponent implements OnInit {
   }
 
   selectPlanet(planet: Planet) {
+    this.films = [];
     this.planetSelected = planet;
     this.uiService.setShowingDetails(true);
     this.loading = true;
-    let films: Film[] = [];
     this.planetSelected.films.forEach(fUrl => {
       this.swapiService.getByUrl(fUrl).subscribe((res:any) =>{
-        films.push(res);
+        this.films.push(res);
       });
-      console.log(films);
       this.loading = false;
     });
+  }
+
+  selectFilm(film: Film) {
+    this.uiService.setCard('Films');
+    this.uiService.setShowingDetails(true);
+    this.uiService.setFilmSelected(film);
   }
 
 }

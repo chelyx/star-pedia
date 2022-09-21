@@ -27,3 +27,10 @@
   width: 100%;
 }
 
+.info-extra{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

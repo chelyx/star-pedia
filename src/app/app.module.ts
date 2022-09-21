@@ -11,6 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { FilmsComponent } from './films/films.component';
 import { CharactersComponent } from './characters/characters.component';
+import { VehicleDetailsComponent } from './shared/vehicle-details.component';
+import { PlanetDetailsComponent } from './shared/planet-details.component';
+import { FilmDetailsComponent } from './shared/films-details.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { CharactersComponent } from './characters/characters.component';
     PlanetsComponent,
     VehiclesComponent,
     FilmsComponent,
-    CharactersComponent
+    CharactersComponent,
+    VehicleDetailsComponent,
+    PlanetDetailsComponent,
+    FilmDetailsComponent,
   ],
   imports: [
     BrowserModule,

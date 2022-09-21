@@ -4,8 +4,15 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Questrial';
+  src: url(assets/Questrial-Regular.ttf) format("opentype");
+  font-display: swap;
+}
+
+
 html, body { height: 100%; }
-body, p, h1,h2,h3, label {
+body, p, h1,h2,h3, label, #name {
   margin: 0;
   font-family: anakinmono, "Helvetica Neue", sans-serif;
 }
@@ -46,17 +53,18 @@ body, p, h1,h2,h3, label {
 }
 
 .details {
-  height: 400px;
   width: 600px;
   display: flex;
   flex-direction: column;
   color: white;
   justify-content: flex-start;
+  font-family: Questrial, "Helvetica Neue", sans-serif;
+  font-size: 22px;
   align-items: flex-start;
-  padding-top: 15px;
-  padding-left: 15px;
+  padding: 15px;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 19px;
+  text-shadow: 4px 4px black;
   #name {
     font-size: 25px;
     color: rgb(255, 213, 79);

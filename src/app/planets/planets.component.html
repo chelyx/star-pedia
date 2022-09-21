@@ -5,18 +5,12 @@
     </div>
   </div>
 
+  <app-planet-details *ngIf="showDetails" [planet]="planetSelected"></app-planet-details>
   <div *ngIf="showDetails" class="details">
-    <span id="name">{{planetSelected.name}}</span>
-    <span>Diameter: {{planetSelected.diameter}}</span>
-    <span>Rotation period: {{planetSelected.rotation_period}}</span>
-    <span>Gravity: {{planetSelected.gravity}}</span>
-    <span>Population: {{planetSelected.population}}</span>
-    <span>Climate: {{planetSelected.climate}}</span>
-    <span>Terrain: {{planetSelected.terrain}}</span>
-    <span>Surface Water: {{planetSelected.surface_water}}</span>
-    <div class="links">
-      <span>Residents</span>
-      <span>Films</span>
+    <!-- <span>Residents</span> -->
+    <span>Films</span>
+    <div class="info-extra">
+      <span (click)="selectFilm(f)" *ngFor="let f of films">{{f.title}}</span>
     </div>
   </div>
 </div>

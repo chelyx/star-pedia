@@ -5,18 +5,11 @@
     </div>
   </div>
 
-  <div *ngIf="showDetails" class="details">
-    <span id="name">{{filmSelected.title}}</span>
-    <span>Episodio: {{filmSelected.episode_id}}</span>
-    <span>Opening Crawl: {{filmSelected.opening_crawl}}</span>
-    <span>Director: {{filmSelected.director}}</span>
-    <span>Producer: {{filmSelected.producer}}</span>
-    <span>Release date: {{filmSelected.release_date}}</span>
-    <div class="links">
-      <span>Vehicles</span>
-      <span>Planets</span>
-      <span>Characters</span>
-    </div>
+  <app-film-details *ngIf="showDetails" [film]="filmSelected"></app-film-details>
+  <div *ngIf="showDetails" class="links">
+    <span>Vehicles</span>
+    <span>Planets</span>
+    <span>Characters</span>
   </div>
 </div>
 <div *ngIf="loading">

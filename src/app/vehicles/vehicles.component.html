@@ -1,1 +1,11 @@
-<p>vehicles works!</p>
+<div *ngIf="!loading" class="inner-container">
+  <div *ngIf="!showDetails" class="vehicle-c">
+    <div *ngFor="let ch of vehicles" class="vehicle" (click)="selectVehicle(ch)">
+      <span>{{ch.name}}</span>
+    </div>
+  </div>
+  <app-vehicle-details *ngIf="showDetails" [vehicle]="vehicleSelected"></app-vehicle-details>
+</div>
+<div *ngIf="loading">
+  <mat-spinner [diameter]="200"></mat-spinner>
+</div>

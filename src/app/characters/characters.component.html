@@ -1,0 +1,26 @@
+<div *ngIf="!loading" class="inner-container">
+  <div *ngIf="!showDetails" class="people-c">
+    <div *ngFor="let ch of characters" class="people" (click)="selectCharacter(ch)">
+      <span>{{ch.name}}</span>
+    </div>
+  </div>
+
+  <div *ngIf="showDetails" class="details">
+    <span id="name">{{characterSelected.name}}</span>
+    <span>Birth year: {{characterSelected.birth_year}}</span>
+    <span>Eye color: {{characterSelected.eye_color}}</span>
+    <span>Gender: {{characterSelected.gender}}</span>
+    <span>Hair Color: {{characterSelected.hair_color}}</span>
+    <span>Height: {{characterSelected.height}}</span>
+    <span>Mass: {{characterSelected.mass}}</span>
+    <span>Skin Color: {{characterSelected.skin_color}}</span>
+    <div class="links">
+      <span>Vehicles</span>
+      <span>Planets</span>
+      <span>Films</span>
+    </div>
+  </div>
+</div>
+<div *ngIf="loading">
+  <mat-spinner [diameter]="200"></mat-spinner>
+</div>

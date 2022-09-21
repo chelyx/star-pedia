@@ -14,10 +14,11 @@ export class MainComponent implements OnInit {
   constructor(private readonly uiService: UiService) { }
 
   ngOnInit(): void {
+    this.uiService.getCard().subscribe(c => this.cardSelected = c)
   }
 
   openCard(selected: 'Characters' | 'Films' | 'Planets' | 'Vehicles' | 'NONE') {
-    this.cardSelected = selected;
+    this.uiService.setCard(selected);
     if(selected === 'NONE') {
       this.uiService.setShowingDetails(false);
     }
