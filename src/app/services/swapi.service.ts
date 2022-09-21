@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { forkJoin, map } from 'rxjs';
+import { Film } from '../models/films.model';
 import { Planet } from '../models/planet.model';
 
 @Injectable({
@@ -60,6 +62,12 @@ export class SwapiService {
 
   getByUrl(url:string) {
     return this.httpClient.get(url);
+  }
+
+  getMultipleUrls(urls: string[]){
+    return forkJoin(urls.map(fUrl => {
+      return this.getByUrl(fUrl)
+    }));
   }
 
 }

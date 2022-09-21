@@ -24,6 +24,10 @@ export class CharactersComponent implements OnInit {
       this.loading = false;
     });
     this.uiService.getShowingDetails().subscribe(v => this.showDetails = v);
+    this.uiService.getCharacterSelected().subscribe(v => {
+      this.characterSelected = v;
+      console.log(v);
+    });
   }
 
   selectCharacter(p: People){
