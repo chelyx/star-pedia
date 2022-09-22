@@ -31,8 +31,10 @@ export class FilmsComponent implements OnInit {
     });
     this.uiService.getShowingDetails().subscribe(v => this.showDetails = v);
     this.uiService.getFilmSelected().subscribe(v => {
-      this.filmSelected = v;
+      if (v) {
+      this.selectFilm(v);
       console.log(v);
+      }
     });
   }
 

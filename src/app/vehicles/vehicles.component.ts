@@ -28,6 +28,12 @@ export class VehiclesComponent implements OnInit {
       this.loading = false;
     });
     this.uiService.getShowingDetails().subscribe(v => this.showDetails = v);
+    this.uiService.getVehicleSelected().subscribe(v => {
+      if (v) {
+        this.selectVehicle(v);
+        console.log(v);
+      }
+    });
   }
 
   selectVehicle(v: Vehicle){
