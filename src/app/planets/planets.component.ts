@@ -28,6 +28,10 @@ export class PlanetsComponent implements OnInit {
       this.loading = false;
     });
     this.uiService.getShowingDetails().subscribe(v => this.showDetails = v);
+    this.uiService.getPlanetSelected().subscribe(v => {
+      this.planetSelected = v;
+      console.log(v);
+    });
   }
 
   selectPlanet(planet: Planet) {

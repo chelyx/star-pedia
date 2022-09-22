@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Film } from '../models/films.model';
 import { People } from '../models/people.model';
+import { Planet } from '../models/planet.model';
+import { Vehicle } from '../models/vehicle.model';
 import { SwapiService } from '../services/swapi.service';
 import { UiService } from '../services/ui.service';
 
@@ -13,6 +16,8 @@ export class CharactersComponent implements OnInit {
   characters: People[] = [];
   characterSelected: People;
   showDetails = false;
+  films: Film[] = [];
+  vehicles: Vehicle[] = [];
 
   constructor(private readonly swapiService: SwapiService,
     private readonly uiService: UiService) { }
@@ -31,9 +36,36 @@ export class CharactersComponent implements OnInit {
   }
 
   selectCharacter(p: People){
+    this.films = [];
+    this.vehicles = [];
     this.characterSelected = p;
     this.uiService.setShowingDetails(true);
-    // this.loading = true;
+    this.loading = true;
+    let urls = this.characterSelected.vehicles.concat(this.characterSelected.films);
+    this.swapiService.getMultipleUrls(urls).subscribe((res: any[]) =>{
+      res.map(r => {
+        if(r.model) {
+          let v = new Vehicle().setFromJson(r);
+          this.vehicles.push(v);
+        } else if(r.title) {
+          let p = new Film().setFromJson(r);
+          this.films.push(p);
+        }
+      });
+      this.loading = false;
+    });
   }
 
+
+  selectFilm(film: Film) {
+    this.uiService.setCard('Films');
+    this.uiService.setShowingDetails(true);
+    this.uiService.setFilmSelected(film);
+  }
+
+  selectVehicle(vehicle: Vehicle) {
+    this.uiService.setCard('Vehicles');
+    this.uiService.setShowingDetails(true);
+    this.uiService.setVehicleSelected(vehicle);
+  }
 }

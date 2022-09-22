@@ -6,10 +6,19 @@
   </div>
 
   <app-film-details *ngIf="showDetails" [film]="filmSelected"></app-film-details>
-  <div *ngIf="showDetails" class="links">
+  <div *ngIf="showDetails" class="details">
     <span>Vehicles</span>
+    <div class="info-extra">
+      <span (click)="selectVehicle(r)" *ngFor="let r of vehicles">{{r.name}}</span>
+    </div>
     <span>Planets</span>
+    <div class="info-extra">
+      <span (click)="selectPlanet(r)" *ngFor="let r of planets">{{r.name}}</span>
+    </div>
     <span>Characters</span>
+    <div class="info-extra">
+      <span (click)="selectPeople(r)" *ngFor="let r of residents">{{r.name}}</span>
+    </div>
   </div>
 </div>
 <div *ngIf="loading">

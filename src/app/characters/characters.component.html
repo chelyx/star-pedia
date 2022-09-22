@@ -5,19 +5,15 @@
     </div>
   </div>
 
+  <app-people-details *ngIf="showDetails" [people]="characterSelected"></app-people-details>
   <div *ngIf="showDetails" class="details">
-    <span id="name">{{characterSelected.name}}</span>
-    <span>Birth year: {{characterSelected.birth_year}}</span>
-    <span>Eye color: {{characterSelected.eye_color}}</span>
-    <span>Gender: {{characterSelected.gender}}</span>
-    <span>Hair Color: {{characterSelected.hair_color}}</span>
-    <span>Height: {{characterSelected.height}}</span>
-    <span>Mass: {{characterSelected.mass}}</span>
-    <span>Skin Color: {{characterSelected.skin_color}}</span>
-    <div class="links">
-      <span>Vehicles</span>
-      <span>Planets</span>
-      <span>Films</span>
+    <span>Vehicles</span>
+    <div class="info-extra">
+      <span (click)="selectVehicle(r)" *ngFor="let r of vehicles">{{r.name}}</span>
+    </div>
+    <span>Films</span>
+    <div class="info-extra">
+      <span (click)="selectFilm(f)" *ngFor="let f of films">{{f.title}}</span>
     </div>
   </div>
 </div>

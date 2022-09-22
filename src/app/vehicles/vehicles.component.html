@@ -5,6 +5,16 @@
     </div>
   </div>
   <app-vehicle-details *ngIf="showDetails" [vehicle]="vehicleSelected"></app-vehicle-details>
+  <div *ngIf="showDetails" class="details">
+    <span>Pilots</span>
+    <div class="info-extra">
+      <span (click)="selectPeople(r)" *ngFor="let r of people">{{r.name}}</span>
+    </div>
+    <span>Films</span>
+    <div class="info-extra">
+      <span (click)="selectFilm(f)" *ngFor="let f of films">{{f.title}}</span>
+    </div>
+  </div>
 </div>
 <div *ngIf="loading">
   <mat-spinner [diameter]="200"></mat-spinner>

@@ -2,6 +2,8 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { Film } from "../models/films.model";
 import { People } from "../models/people.model";
+import { Planet } from "../models/planet.model";
+import { Vehicle } from "../models/vehicle.model";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,8 @@ export class UiService {
   card = new BehaviorSubject<'Characters' | 'Films' | 'Planets' | 'Vehicles' | 'NONE'>('NONE');
   filmSelected = new BehaviorSubject<Film>(null);
   characterSelected = new BehaviorSubject<People>(null);
+  vehicleSelected = new BehaviorSubject<Vehicle>(null);
+  planetSelected = new BehaviorSubject<Planet>(null);
 
   getShowingDetails() {
     return this.showingDetails.asObservable();
@@ -42,5 +46,21 @@ export class UiService {
 
   setCharacterSelected(value:People){
     this.characterSelected.next(value);
+  }
+
+  getVehicleSelected() {
+    return this.vehicleSelected.asObservable();
+  }
+
+  setVehicleSelected(value:Vehicle){
+    this.vehicleSelected.next(value);
+  }
+
+  getPlanetSelected() {
+    return this.planetSelected.asObservable();
+  }
+
+  setPlanetSelected(value:Planet){
+    this.planetSelected.next(value);
   }
 }

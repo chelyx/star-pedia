@@ -14,6 +14,7 @@ import { CharactersComponent } from './characters/characters.component';
 import { VehicleDetailsComponent } from './shared/vehicle-details.component';
 import { PlanetDetailsComponent } from './shared/planet-details.component';
 import { FilmDetailsComponent } from './shared/films-details.component';
+import { PeopleDetailsComponent } from './shared/people-details.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FilmDetailsComponent } from './shared/films-details.component';
     VehicleDetailsComponent,
     PlanetDetailsComponent,
     FilmDetailsComponent,
+    PeopleDetailsComponent
   ],
   imports: [
     BrowserModule,
