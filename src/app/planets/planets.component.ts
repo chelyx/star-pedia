@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Film } from '../models/films.model';
 import { People } from '../models/people.model';
 import { Planet } from '../models/planet.model';
@@ -10,7 +10,7 @@ import { UiService } from '../services/ui.service';
   templateUrl: './planets.component.html',
   styleUrls: ['./planets.component.scss']
 })
-export class PlanetsComponent implements OnInit {
+export class PlanetsComponent implements OnInit, OnDestroy {
   nextUrl: string;
   showDetails = false;
   loading = true;
@@ -87,6 +87,10 @@ export class PlanetsComponent implements OnInit {
     this.uiService.setCard('Characters');
     this.uiService.setShowingDetails(true);
     this.uiService.setCharacterSelected(people);
+  }
+
+  ngOnDestroy() {
+    this.uiService.setPlanetSelected(null);
   }
 
 }

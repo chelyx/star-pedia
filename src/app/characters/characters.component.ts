@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Film } from '../models/films.model';
 import { People } from '../models/people.model';
-import { Planet } from '../models/planet.model';
 import { Vehicle } from '../models/vehicle.model';
 import { SwapiService } from '../services/swapi.service';
 import { UiService } from '../services/ui.service';
@@ -11,7 +10,7 @@ import { UiService } from '../services/ui.service';
   templateUrl: './characters.component.html',
   styleUrls: ['./characters.component.scss']
 })
-export class CharactersComponent implements OnInit {
+export class CharactersComponent implements OnInit, OnDestroy {
   loading = true;
   nextUrl: string;
   resPeople: any[][] = [];
@@ -88,5 +87,9 @@ export class CharactersComponent implements OnInit {
     this.uiService.setCard('Vehicles');
     this.uiService.setShowingDetails(true);
     this.uiService.setVehicleSelected(vehicle);
+  }
+
+  ngOnDestroy() {
+    this.uiService.setCharacterSelected(null);
   }
 }

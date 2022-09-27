@@ -19,9 +19,7 @@ export class MainComponent implements OnInit {
 
   openCard(selected: 'Characters' | 'Films' | 'Planets' | 'Vehicles' | 'NONE') {
     this.uiService.setCard(selected);
-    if(selected === 'NONE') {
-      this.uiService.setShowingDetails(false);
-    }
+    this.uiService.setShowingDetails(false);
   }
 
   onShowDetails(value: boolean) {
