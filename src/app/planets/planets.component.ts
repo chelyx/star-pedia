@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { forkJoin, Observable } from 'rxjs';
 import { Film } from '../models/films.model';
 import { People } from '../models/people.model';
 import { Planet } from '../models/planet.model';
@@ -12,9 +11,12 @@ import { UiService } from '../services/ui.service';
   styleUrls: ['./planets.component.scss']
 })
 export class PlanetsComponent implements OnInit {
+  nextUrl: string;
   showDetails = false;
   loading = true;
-  planets: Planet[] = [];
+  resPlanets: any[][] = [];
+  currentPage = 0;
+  totalPages = 0;
   planetSelected: Planet;
   films: Film[] = [];
   residents: People[] = [];
@@ -23,9 +25,11 @@ export class PlanetsComponent implements OnInit {
 
   ngOnInit(): void {
     this.swapiService.getAllPlanets().subscribe((res: any) =>{
-      this.planets = res.results;
       console.log(res);
+      this.nextUrl = res.next;
+      this.resPlanets[0] = res.results;
       this.loading = false;
+      this.totalPages = Math.ceil(res.count/10);
     });
     this.uiService.getShowingDetails().subscribe(v => this.showDetails = v);
     this.uiService.getPlanetSelected().subscribe(v => {
@@ -35,6 +39,21 @@ export class PlanetsComponent implements OnInit {
       }
 
     });
+  }
+
+  loadMore(){
+    console.log(this.nextUrl);
+    this.loading = true;
+    this.currentPage++;
+    this.swapiService.getByUrl(this.nextUrl).subscribe((res: any) => {
+      this.nextUrl = res.next;
+      this.resPlanets[this.currentPage] = res.results;
+      this.loading = false;
+    })
+  }
+
+  goBack() {
+    this.currentPage--;
   }
 
   selectPlanet(planet: Planet) {

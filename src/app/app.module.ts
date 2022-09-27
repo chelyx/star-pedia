@@ -15,6 +15,8 @@ import { VehicleDetailsComponent } from './shared/vehicle-details.component';
 import { PlanetDetailsComponent } from './shared/planet-details.component';
 import { FilmDetailsComponent } from './shared/films-details.component';
 import { PeopleDetailsComponent } from './shared/people-details.component';
+import { MatIconModule } from '@angular/material/icon';
+import { PageNumberPipe } from './shared/page-number.pipe'
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { PeopleDetailsComponent } from './shared/people-details.component';
     VehicleDetailsComponent,
     PlanetDetailsComponent,
     FilmDetailsComponent,
-    PeopleDetailsComponent
+    PeopleDetailsComponent,
+    PageNumberPipe
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { PeopleDetailsComponent } from './shared/people-details.component';
     HttpClientModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,18 @@
 <div *ngIf="!loading" class="inner-container">
-  <div *ngIf="!showDetails" class="film-c">
-    <div *ngFor="let film of films" class="film" (click)="selectFilm(film)">
-      <span>{{film.title}}</span>
+  <div *ngIf="!showDetails" class="results">
+    <span *ngIf="currentPage !== 0">
+      <mat-icon (click)="goBack()" >arrow_circle_left</mat-icon>
+    </span>
+    <div class="items-row">
+      <div *ngFor="let film of resFilms[currentPage]" class="item" (click)="selectFilm(film)">
+        <span>{{film.title}}</span>
+      </div>
     </div>
+    <span *ngIf="nextUrl">
+      <mat-icon (click)="loadMore()" >arrow_circle_right</mat-icon>
+    </span>
   </div>
+  <div *ngIf="!showDetails" class="footer"> {{currentPage | pageNumber}}/{{totalPages}}</div>
 
   <app-film-details *ngIf="showDetails" [film]="filmSelected"></app-film-details>
   <div *ngIf="showDetails" class="details">

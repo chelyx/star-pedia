@@ -13,7 +13,10 @@ import { UiService } from '../services/ui.service';
 })
 export class CharactersComponent implements OnInit {
   loading = true;
-  characters: People[] = [];
+  nextUrl: string;
+  resPeople: any[][] = [];
+  currentPage = 0;
+  totalPages = 0;
   characterSelected: People;
   showDetails = false;
   films: Film[] = [];
@@ -24,8 +27,10 @@ export class CharactersComponent implements OnInit {
 
   ngOnInit(): void {
     this.swapiService.getAllPeople().subscribe((res: any) =>{
-      this.characters = res.results;
       console.log(res);
+      this.resPeople[0] = res.results;
+      this.nextUrl = res.next;
+      this.totalPages = Math.ceil(res.count/10);
       this.loading = false;
     });
     this.uiService.getShowingDetails().subscribe(v => this.showDetails = v);
@@ -58,6 +63,20 @@ export class CharactersComponent implements OnInit {
     });
   }
 
+  loadMore(){
+    console.log(this.nextUrl);
+    this.loading = true;
+    this.currentPage++;
+    this.swapiService.getByUrl(this.nextUrl).subscribe((res: any) => {
+      this.nextUrl = res.next;
+      this.resPeople[this.currentPage] = res.results;
+      this.loading = false;
+    })
+  }
+
+  goBack() {
+    this.currentPage--;
+  }
 
   selectFilm(film: Film) {
     this.uiService.setCard('Films');

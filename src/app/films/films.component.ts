@@ -13,7 +13,10 @@ import { UiService } from '../services/ui.service';
 })
 export class FilmsComponent implements OnInit {
   loading = true;
-  films: Film[] = [];
+  nextUrl: string;
+  resFilms: any[][] = [];
+  currentPage = 0;
+  totalPages = 0;
   filmSelected: Film;
   showDetails = false;
   planets: Planet[] = [];
@@ -25,9 +28,11 @@ export class FilmsComponent implements OnInit {
 
   ngOnInit(): void {
     this.swapiService.getAllFilms().subscribe((res: any) =>{
-      this.films = res.results;
       console.log(res);
+      this.nextUrl = res.next;
+      this.resFilms[0] = res.results;
       this.loading = false;
+      this.totalPages = Math.ceil(res.count/10);
     });
     this.uiService.getShowingDetails().subscribe(v => this.showDetails = v);
     this.uiService.getFilmSelected().subscribe(v => {
@@ -36,6 +41,21 @@ export class FilmsComponent implements OnInit {
       console.log(v);
       }
     });
+  }
+
+  loadMore(){
+    console.log(this.nextUrl);
+    this.loading = true;
+    this.currentPage++;
+    this.swapiService.getByUrl(this.nextUrl).subscribe((res: any) => {
+      this.nextUrl = res.next;
+      this.resFilms[this.currentPage] = res.results;
+      this.loading = false;
+    })
+  }
+
+  goBack() {
+    this.currentPage--;
   }
 
   selectFilm(f: Film){

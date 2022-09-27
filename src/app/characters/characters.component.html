@@ -1,10 +1,21 @@
 <div *ngIf="!loading" class="inner-container">
-  <div *ngIf="!showDetails" class="people-c">
-    <div *ngFor="let ch of characters" class="people" (click)="selectCharacter(ch)">
-      <span>{{ch.name}}</span>
+  <div *ngIf="!showDetails" class="results">
+    <span *ngIf="currentPage !== 0">
+      <mat-icon (click)="goBack()" >arrow_circle_left</mat-icon>
+    </span>
+    <div class="items-row">
+      <div *ngFor="let ch of resPeople[currentPage]" class="item" (click)="selectCharacter(ch)">
+        <span>{{ch.name}}</span>
+      </div>
     </div>
+    <span *ngIf="nextUrl">
+      <mat-icon (click)="loadMore()" >arrow_circle_right</mat-icon>
+    </span>
   </div>
+  <div *ngIf="!showDetails" class="footer"> {{currentPage | pageNumber}}/{{totalPages}}</div>
+</div>
 
+<div *ngIf="showDetails" class="details-container">
   <app-people-details *ngIf="showDetails" [people]="characterSelected"></app-people-details>
   <div *ngIf="showDetails" class="details">
     <span>Vehicles</span>
@@ -17,6 +28,7 @@
     </div>
   </div>
 </div>
+
 <div *ngIf="loading">
   <mat-spinner [diameter]="200"></mat-spinner>
 </div>

@@ -12,7 +12,10 @@ import { UiService } from '../services/ui.service';
 })
 export class VehiclesComponent implements OnInit {
   loading = true;
-  vehicles: Vehicle[] = [];
+  nextUrl: string;
+  resVehicles: any[][] = [];
+  currentPage = 0;
+  totalPages = 0;
   vehicleSelected: Vehicle;
   showDetails = false;
   films: Film[] = [];
@@ -23,8 +26,10 @@ export class VehiclesComponent implements OnInit {
 
   ngOnInit(): void {
     this.swapiService.getAllVehicles().subscribe((res: any) =>{
-      this.vehicles = res.results;
       console.log(res);
+      this.resVehicles[0] = res.results;
+      this.nextUrl = res.next;
+      this.totalPages = Math.ceil(res.count/10);
       this.loading = false;
     });
     this.uiService.getShowingDetails().subscribe(v => this.showDetails = v);
@@ -34,6 +39,21 @@ export class VehiclesComponent implements OnInit {
         console.log(v);
       }
     });
+  }
+
+  loadMore(){
+    console.log(this.nextUrl);
+    this.loading = true;
+    this.currentPage++;
+    this.swapiService.getByUrl(this.nextUrl).subscribe((res: any) => {
+      this.nextUrl = res.next;
+      this.resVehicles[this.currentPage] = res.results;
+      this.loading = false;
+    })
+  }
+
+  goBack() {
+    this.currentPage--;
   }
 
   selectVehicle(v: Vehicle){
