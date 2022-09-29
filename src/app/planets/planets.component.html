@@ -15,7 +15,7 @@
   <div *ngIf="!showDetails" class="footer"> {{currentPage | pageNumber}}/{{totalPages}}</div>
 </div>
 
-<div *ngIf="showDetails" class="details-container">
+<div *ngIf="!loading && showDetails" class="details-container">
   <app-planet-details *ngIf="showDetails" [planet]="planetSelected"></app-planet-details>
   <div *ngIf="showDetails" class="details">
     <span>Films</span>

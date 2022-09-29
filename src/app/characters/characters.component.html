@@ -15,7 +15,7 @@
   <div *ngIf="!showDetails" class="footer"> {{currentPage | pageNumber}}/{{totalPages}}</div>
 </div>
 
-<div *ngIf="showDetails" class="details-container">
+<div *ngIf="!loading && showDetails" class="details-container">
   <app-people-details *ngIf="showDetails" [people]="characterSelected"></app-people-details>
   <div *ngIf="showDetails" class="details">
     <span>Vehicles</span>
